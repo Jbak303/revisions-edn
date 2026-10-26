@@ -6,7 +6,7 @@ Le site affiche ce qui se trouve dans le dépôt de données. N'importe quel out
 
 Les consignes de rédaction sont dans le dépôt de données lui-même, pour qu'une seule source fasse foi :
 
-- `outils/CONSIGNES-QCM.md` : composition d'une série (7 questions isolées et un bloc DP, KFP ou TCS), manière d'écrire des épreuves nationales, règles par format, correction, Google Doc et JSON au format 2 ;
+- `outils/CONSIGNES-QCM.md` : composition d'une série calée sur les EDN 2026 (3 ou 4 questions isolées, un dossier progressif et un KFP ou un TCS), manière d'écrire des épreuves nationales, règles par format, correction, Google Doc et JSON au format 2 ;
 - `outils/verifier_serie.py` : contrôle d'une série avant enregistrement ;
 - `outils/planifier.py` : planification adaptative après J30 (intervalle selon la note et le rang A, plafond de 120 jours, phase finale avant les EDN) ;
 - `outils/programme-officiel.json` : objectifs de connaissance de l'arrêté du 24 juillet 2023, par item ;

@@ -859,8 +859,18 @@ function fichesView(){var root=h("div",{},ownerNote(),h("div",{class:"bartitle"}
           var when=done?h("span",{class:"tag ok"},"fait"):d<0?h("span",{class:"tag bad"},"en retard"):d===0?h("span",{class:"tag mid"},"aujourd'hui"):h("span",{class:"tag hl"},fdate(s.date,{day:"numeric",month:"short"}));
           return h("div",{class:"jcell"},h("div",{class:"jt"},h("span",{},s.serie+" · "+fdate(s.date,{day:"numeric",month:"short"})),when),
             relecBox(s.id,"Relue"),
-            h("div",{style:"margin-top:8px"},l?h("span",{class:"row",style:"gap:6px"},h("span",{class:"small muted"},"QCM"),scoreTag(l)):hasQ(s)?h("button",{class:"btn sm",onclick:function(){launch([s.id])}},"Faire le QCM"):h("span",{class:"small muted"},"QCM le "+fdate(s.date,{day:"numeric",month:"short"}))))})))) })));
+            h("div",{style:"margin-top:8px"},l?h("span",{class:"row",style:"gap:6px"},h("span",{class:"small muted"},"QCM"),scoreTag(l)):hasQ(s)?h("button",{class:"btn sm",onclick:function(){launch([s.id])}},"Faire le QCM"):h("span",{class:"small muted"},"QCM le "+fdate(s.date,{day:"numeric",month:"short"}))))})),
+        annalesBox(it))) })));
   return root}
+function annalesBox(it){var a=it.annales;if(!Array.isArray(a))return null;
+  if(!a.length)return h("div",{class:"small muted",style:"margin-top:14px"},"Aux annales : jamais tombé de 2023 à 2026.");
+  var ans=[];a.forEach(function(x){if(ans.indexOf(x.annee)<0)ans.push(x.annee)});ans.sort();
+  var c=a.filter(function(x){return x.place!=="partiel"}).length;
+  var d=h("details",{class:"annales",style:"margin-top:14px"},
+    h("summary",{class:"small",style:"cursor:pointer"},h("b",{},"Aux annales"),h("span",{class:"muted"}," · "+a.length+" bloc"+(a.length>1?"s":"")+" ou question"+(a.length>1?"s":"")+(c===0?" (l'item n'y occupe qu'une partie)":c<a.length?" ("+c+" centré"+(c>1?"s":"")+" sur l'item)":"")+" · "+ans.join(", "))),
+    h("ul",{class:"small",style:"margin:8px 0 0;padding-left:18px"},a.slice().sort(function(x,y){return y.annee-x.annee}).map(function(x){
+      return h("li",{style:"margin:4px 0"},h("span",{},x.theme),h("span",{class:"muted"}," — "+x.epreuve+", "+x.bloc+(x.place==="partiel"?" · en partie":"")))})));
+  return d}
 
 /* ---------- Contexte, raisonnement, carnet d'erreurs ---------- */
 function ctxBox(Q){if(!Q.contexte&&!Q.raisonnement)return null;

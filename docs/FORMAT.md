@@ -23,7 +23,8 @@ Un fichier = un document JSON (UTF-8). Le site charge tout le dossier `data/` en
   "items_lisa": ["193"],
   "objectifs": [{"item": "193", "code": "OIC-193-01", "rang": "A", "rubrique": "Définition", "libelle": "Définition d'une vascularite"}],
   "ordre": 8,
-  "college": "medecine-interne"
+  "college": "medecine-interne",
+  "annales": [{"annee": 2025, "epreuve": "Épreuve dématérialisée 2025 · R1", "bloc": "QI 36", "theme": "Rhinite croûteuse et otite : granulomatose avec polyangéite", "place": "central"}]
 }
 ```
 
@@ -34,6 +35,7 @@ Un fichier = un document JSON (UTF-8). Le site charge tout le dossier `data/` en
 - `titre_doc` et `notes_qcm` : titre court des Google Docs et consignes propres à l'item pour la rédaction des séries.
 - `college` : identifiant d'un document `colleges/` ; le chapitre portant le même numéro d'item est alors compté comme fait.
 - `ordre` : ordre d'affichage.
+- `annales` : blocs ou questions des épreuves nationales 2023 à 2026 qui portent sur l'item (`place` : `central` ou `partiel` quand l'item n'occupe qu'une partie du bloc). Affichés sous la fiche (« Aux annales ») et lus avant de rédiger une série. Une liste vide signifie que l'item n'est jamais tombé ; champ absent : pas encore recherché.
 
 ## series/&lt;item&gt;-&lt;J&gt;.json : une série de QCM
 
